@@ -41,7 +41,7 @@ router.get("/", (req, res) => {
     res.send("app is working...")
 });
 
-// router.post("/contactUs", contactUs);
+router.post("/contactUs", contactUsHandler);
 
 
 //exporting router

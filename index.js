@@ -3,7 +3,7 @@ import express from 'express';
 // const express = require("express");
 import { PORT, mongoDBURL } from "./config.js";
 import mongoose from 'mongoose';
-// const cors = require("cors");
+import cors from 'cors';
 
 // requiring routers
 import { router } from './src/routes/index.js';
@@ -15,9 +15,12 @@ import { router } from './src/routes/index.js';
 const app = express();
 
 //setting up cors
+app.use(cors());
 // app.use(
 //     cors({
 //         origin: "http://localhost:3000",
+//         methods: ['GET', 'POST', 'PUT', 'DELETE'],
+//         allowedHeaders: ['Content-Type'],
 //         credentials: true,
 //     })
 // );

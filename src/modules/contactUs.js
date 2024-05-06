@@ -24,7 +24,8 @@ const contactUsSchema = new Schema({
 );
 
 // wrapping staffschema in an object
-export const contactUs = mongoose.model("contactUs", contactUsSchema);
+const contactUs = mongoose.model("contactUs", contactUsSchema);
+export default contactUs;
 
 // exporting staff schema
 // module.exports = addStaff;
