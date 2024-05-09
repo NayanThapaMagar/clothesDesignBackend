@@ -12,6 +12,9 @@ export const router = express.Router();
 import contactUsHandler from '../controller/contactUs/contactUs.js';
 
 
+import listContacts from '../controller/contact/listContacts.js';
+
+
 // //importing Product controllers
 // const addProduct = require("../controller/product/addProduct");
 // //importing Tax controllers
@@ -42,6 +45,8 @@ router.get("/", (req, res) => {
 });
 
 router.post("/contactUs", contactUsHandler);
+
+router.get("/listContacts", listContacts);
 
 
 //exporting router

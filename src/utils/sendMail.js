@@ -21,7 +21,6 @@ export default async function sendMail(email, name) {
     <p>Dear ${name},</p>
     <p>We appreciate you reaching out to us. We received your email regarding the clothes design.</p>
     <p>We value your feedback and will take it into consideration.</p>
-    // <p>In the meantime, you can find more information on our website at clothesdesign.com .</p>
     <p>Sincerely,</p>
     <p>The Clothes Design Team</p>`;
     try {
