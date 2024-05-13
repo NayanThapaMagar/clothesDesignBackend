@@ -1,5 +1,7 @@
 import nodemailer from 'nodemailer';
 import { config } from 'dotenv';
+import Mail from '../modules/mail.js';
+import logger from '../../logger/index.js';
 
 config();
 
@@ -15,14 +17,16 @@ const transporter = nodemailer.createTransport({
 
 
 export default async function sendMail(email, name) {
+    const mail = await Mail.findOne({});
     const html = `
-    <h3>Subject: Contact Confirmation.</h3>
-    <h2>Thank you for contacting Clothes Design.</h2>
+    <h3>Subject: ${mail.subject}.</h3>
+    <img src="${mail.image}" alt="logo" />
+    <h2>${mail.title}.</h2>
     <p>Dear ${name},</p>
-    <p>We appreciate you reaching out to us. We received your email regarding the clothes design.</p>
-    <p>We value your feedback and will take it into consideration.</p>
+    <p>${mail.body}.</p>
+    <p>${mail.remarks}.</p>
     <p>Sincerely,</p>
-    <p>The Clothes Design Team</p>`;
+    <p>The ${mail.compalyName} Team</p>`;
     try {
         const info = await transporter.sendMail({
             from: `"Clothes Design" <${process.env.EMAIL_USER}>`, // sender address
@@ -32,7 +36,8 @@ export default async function sendMail(email, name) {
         });
 
         return info;
-    } catch (err) {
-        return err;
+    } catch (error) {
+        logger.log('error', error);
+        return error;
     }
 };

@@ -11,6 +11,8 @@ export const router = express.Router();
 // import contactUs from "../controller/contactUs/contactUs.js";
 import contactUsHandler from '../controller/contactUs/contactUs.js';
 
+import saveMail from '../controller/mail/saveMail.js';
+
 
 import listContacts from '../controller/contact/listContacts.js';
 
@@ -45,6 +47,7 @@ router.get("/", (req, res) => {
 });
 
 router.post("/contactUs", contactUsHandler);
+router.post("/saveMail", saveMail);
 
 router.get("/listContacts", listContacts);
 

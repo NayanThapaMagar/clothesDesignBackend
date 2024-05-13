@@ -1,5 +1,6 @@
 // requiring contactUs schema
 import contactUs from "../../modules/contactUs.js";
+import logger from '../../../logger/index.js'
 
 
 export default async function listContacts(req, res) {
@@ -15,7 +16,8 @@ export default async function listContacts(req, res) {
                 });
             })
 
-    } catch (err) {
+    } catch (error) {
+        logger.log('error', error);
         //catching error if there is something while saving contactUs details
         return res.status(500).send({
             fetchContacts: false,

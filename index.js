@@ -4,6 +4,7 @@ import express from 'express';
 import { PORT, mongoDBURL } from "./config.js";
 import mongoose from 'mongoose';
 import cors from 'cors';
+import logger from './logger/index.js'
 
 // requiring routers
 import { router } from './src/routes/index.js';
@@ -32,21 +33,18 @@ app.use(express.json());
 app.use("/", router);
 // app.use("/auth", authrouter);
 
-// app.get("/", (req, res) => {
-//     // console.log(req);
-//     res.status(234).send("app is working...")
-// });
-
 mongoose
     .connect(mongoDBURL)
     .then(() => {
-        console.log('App connected to database');
+        // logger.info('App connected to database');
+        logger.log('info', 'App connected to database');
         //server start
         app.listen(PORT, () => {
-            console.log("server at ", PORT);
+            logger.info(`server at ${PORT}`);
+            // logger.log('info', `server at ${PORT}`)
         });
     })
     .catch((error) => {
-        console.log(error);
+        logger.log('error', error);
     });
 

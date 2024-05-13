@@ -1,7 +1,7 @@
 // requiring contactUs schema
 import contactUs from "../../modules/contactUs.js";
 import sendMail from "../../utils/sendMail.js";
-
+import logger from '../../../logger/index.js';
 // module.exports = async (req, res) => {
 
 export default async function contactUsHandler(req, res) {
@@ -40,13 +40,15 @@ export default async function contactUsHandler(req, res) {
                     });
                 });
         } else {
+            logger.log('info', 'Failed to send email');
             return res.status(500).json({
                 contactUs: false,
                 message: "Failed to send email",
             });
         }
 
-    } catch (err) {
+    } catch (error) {
+        logger.log('error', error);
         //catching error if there is something while saving contactUs details
         return res.status(500).json({
             contactUs: false,
