@@ -17,7 +17,10 @@ export default async function contactUsHandler(req, res) {
         });
     try {
 
-        const emailRes = await sendMail(email, name)
+        // email to admin and form submitter(contactor)
+        const Email = ["nm58041719@student.ku.edu.np", email]
+
+        const emailRes = await sendMail(Email, name)
 
         if (emailRes && emailRes.messageId) {
             // creating an instance of contactUs schema
@@ -31,11 +34,10 @@ export default async function contactUsHandler(req, res) {
             // adding new instance to the database(adding new  contactUs)
             await newContactUs
                 .save()
-                .then((result) => {
+                .then(() => {
                     // New  contactUs added successfully
                     return res.status(200).json({
                         contactUs: true,
-                        data: result,
                         message: "contactUs Added successfully",
                     });
                 });
