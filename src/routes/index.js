@@ -1,14 +1,9 @@
 import express from 'express';
 export const router = express.Router();
 
-// // requiring authorization middleware
-// const authorizeUserLogin = require("../middleware/authorization/authorizeUserLogin");
-// const authorizeRootUser = require("../middleware/authorization/authorizeRootUser");
-// const authorizeLevelOneUser = require("../middleware/authorization/authorizeLevelOneUser");
+import { upload } from '../middleware/multer.middleware.js';
 
 
-// import { contactUsHandler } from "../controller/contactUs/contactUs";
-// import contactUs from "../controller/contactUs/contactUs.js";
 import contactUsHandler from '../controller/contactUs/contactUs.js';
 
 import saveMail from '../controller/mail/saveMail.js';
@@ -17,41 +12,19 @@ import saveMail from '../controller/mail/saveMail.js';
 import listContacts from '../controller/contact/listContacts.js';
 
 
-// //importing Product controllers
-// const addProduct = require("../controller/product/addProduct");
-// //importing Tax controllers
-// const addTax = require("../controller/tax/addTax");
-// const displayTax = require("../controller/tax/displayTax");
-
-
-
-// // authorizing the user
-// router.use(authorizeUserLogin);
-// router.use(authorizeLevelOneUser);
-
 // //-----------------------------------------REQUEST HANDELING--------------------------------------------
 
-// //routing for Product details
-// router.post("/addProduct", addProduct);
-
-// //routing for Staff details
-// router.post("/addStaff", authorizeRootUser, addStaff);
-
-
-// //routing for tax details
-// router.post("/addTax", addTax);
-// router.get("/displayTax", displayTax);
 
 router.get("/", (req, res) => {
     res.send("app is working...")
 });
 
 router.post("/contactUs", contactUsHandler);
-router.post("/saveMail", saveMail);
+
+// router.post("/saveMail", saveMail);
+router.post("/saveMail", upload.single('image'), saveMail);
 
 router.get("/listContacts", listContacts);
 
 
-//exporting router
-// module.exports = router;
-// export default router;
+

@@ -25,7 +25,6 @@ export default async function sendMail(email, name) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Your Email Subject</title>
         <style>
-            /* CSS styles for better email rendering */
             body {
                 font-family: Arial, sans-serif;
                 line-height: 1.6;
@@ -62,11 +61,13 @@ export default async function sendMail(email, name) {
             <p>${mail.body}.</p>
             <p>${mail.remarks}.</p>
             
-            <img src="${mail.image}" alt="logo" />
-            <!-- <img src="path_to_your_image" alt="Image Description"> -->
-
+            
             <p>Best regards,</p>
+
             <p>The ${mail.compalyName}.</p>
+
+            <img src="${mail.image}" alt="logo" />
+
         </div>
     
         <div class="footer">

@@ -18,9 +18,9 @@ export default async function contactUsHandler(req, res) {
     try {
 
         // email to admin and form submitter(contactor)
-        const Email = ["nm58041719@student.ku.edu.np", email]
+        // const Email = ["nm58041719@student.ku.edu.np", email]
 
-        const emailRes = await sendMail(Email, name)
+        const emailRes = await sendMail(email, name)
 
         if (emailRes && emailRes.messageId) {
             // creating an instance of contactUs schema
