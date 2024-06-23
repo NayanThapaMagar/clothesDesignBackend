@@ -15,7 +15,6 @@ const transporter = nodemailer.createTransport({
     },
 });
 
-
 export default async function sendMail(email, name) {
     const mail = await Mail.findOne({});
     const html = `<!DOCTYPE html>
@@ -61,12 +60,11 @@ export default async function sendMail(email, name) {
             <p>${mail.body}.</p>
             <p>${mail.remarks}.</p>
             
-            
             <p>Best regards,</p>
-
+            
             <p>The ${mail.compalyName}.</p>
 
-            <img src="${mail.image}" alt="logo" />
+            <img src="${mail.image}" alt="logo" width="30" height="20" />
 
         </div>
     
@@ -75,8 +73,6 @@ export default async function sendMail(email, name) {
         </div>
     </body>
     </html>`;
-
-
 
     try {
         const info = await transporter.sendMail({

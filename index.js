@@ -32,16 +32,17 @@ app.use(express.json());
 // //route configure
 app.use("/", router);
 // app.use("/auth", authrouter);
-
 mongoose
     .connect(mongoDBURL)
     .then(() => {
         // logger.info('App connected to database');
-        logger.log('info', 'App connected to database');
+        // logger.log('info', 'App connected to database');
+        console.log("App connected to database");
         //server start
         app.listen(PORT, () => {
-            logger.info(`server at ${PORT}`);
+            // logger.info(`server at ${PORT}`);
             // logger.log('info', `server at ${PORT}`)
+            console.log(`server at ${PORT}`);
         });
     })
     .catch((error) => {
