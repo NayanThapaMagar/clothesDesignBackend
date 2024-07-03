@@ -7,4 +7,9 @@
 [info] 2024-05-14 12:26:48 server at 5555
 [error] 2024-05-15 09:59:01 ENOENT: no such file or directory, unlink 'C:\fakepath\ClothesDesign.png'
 [error] 2024-05-15 12:49:52 read ECONNRESET
-
+[info] 2024-06-26 16:05:24 file uploaded
+[info] 2024-06-26 16:10:21 file uploaded
+[error] 2024-07-02 13:59:32 connection timed out
+[error] 2024-07-02 14:00:07 Server selection timed out after 30000 ms
+[error] 2024-07-02 14:01:22 connection timed out
+[error] 2024-07-02 14:47:58 Server selection timed out after 30000 ms

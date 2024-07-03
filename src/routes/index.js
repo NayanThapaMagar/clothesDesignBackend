@@ -11,6 +11,8 @@ import saveMail from '../controller/mail/saveMail.js';
 
 import listContacts from '../controller/contact/listContacts.js';
 
+import bulkMail from '../controller/mail/bulkMail.js';
+
 
 // //-----------------------------------------REQUEST HANDELING--------------------------------------------
 
@@ -25,6 +27,8 @@ router.post("/contactUs", contactUsHandler);
 router.post("/saveMail", upload.single('image'), saveMail);
 
 router.get("/listContacts", listContacts);
+
+router.post("/sendBulkMail", bulkMail);
 
 
 
