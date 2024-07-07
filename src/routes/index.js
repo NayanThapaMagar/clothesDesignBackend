@@ -8,6 +8,8 @@ import contactUsHandler from '../controller/contactUs/contactUs.js';
 
 import saveMail from '../controller/mail/saveMail.js';
 
+import saveCustomerDescription from '../controller/customerDescription/saveCustomerDescription.js';
+
 
 import listContacts from '../controller/contact/listContacts.js';
 
@@ -29,6 +31,8 @@ router.post("/saveMail", upload.single('image'), saveMail);
 router.get("/listContacts", listContacts);
 
 router.post("/sendBulkMail", bulkMail);
+
+router.post("/saveCustomerDescription", saveCustomerDescription);
 
 
 

@@ -13,12 +13,10 @@ export default async function bulkMail(req, res) {
         });
 
     function splitArrayIntoChunks(arr, chunkSize = 600) {
-
         const result = [];
         for (let i = 0; i < arr.length; i += chunkSize) {
             result.push(arr.slice(i, i + chunkSize));
         }
-
         return result;
     }
 

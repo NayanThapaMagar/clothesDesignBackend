@@ -4,3 +4,5 @@
 [error] 2024-07-02 14:00:07 Server selection timed out after 30000 ms
 [error] 2024-07-02 14:01:22 connection timed out
 [error] 2024-07-02 14:47:58 Server selection timed out after 30000 ms
+[error] 2024-07-07 10:17:45 querySrv ETIMEOUT _mongodb._tcp.cluster0.lmn44bj.mongodb.net
+[error] 2024-07-07 11:11:34 Server selection timed out after 30000 ms
