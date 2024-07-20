@@ -17,8 +17,6 @@ export default async function contactUsHandler(req, res) {
         });
     try {
 
-        // email to admin and form submitter(contactor)
-        // const Email = ["nm58041719@student.ku.edu.np", email]
         const customer = await contactUs.findOne({ Email: email });
 
         if (customer) {

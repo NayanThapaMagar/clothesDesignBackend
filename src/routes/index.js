@@ -15,6 +15,10 @@ import listContacts from '../controller/contact/listContacts.js';
 
 import bulkMail from '../controller/mail/bulkMail.js';
 
+import savePrizes from '../controller/spinWheelSettings/savePrizes.js';
+
+import getPrizes from '../controller/spinWheelSettings/getPrizes.js';
+
 
 // //-----------------------------------------REQUEST HANDELING--------------------------------------------
 
@@ -33,6 +37,10 @@ router.get("/listContacts", listContacts);
 router.post("/sendBulkMail", bulkMail);
 
 router.post("/saveCustomerDescription", saveCustomerDescription);
+
+router.post("/spinWheelSettings/savePrizes", savePrizes);
+
+router.get("/spinWheelSettings/getPrizes", getPrizes);
 
 
 

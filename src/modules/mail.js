@@ -1,6 +1,6 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose from "mongoose";
 
-const Scema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
 const mailSchema = new Schema({
     subject: {
