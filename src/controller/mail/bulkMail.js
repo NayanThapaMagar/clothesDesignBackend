@@ -1,35 +1,49 @@
-// import Mail from "../../modules/mail.js";
-import sendBulkMail from "../../utils/sendBulkMail.js";
+import sendMail from "../../utils/sendMail.js";
+import Key from "../../modules/Key.js";
+import crypto from 'crypto';
 import logger from '../../../logger/index.js';
 
 export default async function bulkMail(req, res) {
 
-    const { mailList } = req.body;
+    const {
+        contactList
+    } = req.body;
 
-    if (!mailList)
+    const encryptonKey = crypto.randomBytes(32);
+
+    if (!contactList)
         return res.send({
             sendMail: false,
             message: "Fields not provided",
         });
-
-    function splitArrayIntoChunks(arr, chunkSize = 600) {
-        const result = [];
-        for (let i = 0; i < arr.length; i += chunkSize) {
-            result.push(arr.slice(i, i + chunkSize));
-        }
-        return result;
-    }
-
     try {
-        const mailChunks = splitArrayIntoChunks(mailList);
+        const key = await Key.findOne({});
+        if (key) {
+            const _id = key._id;
+            await Key
+                .updateMany(
+                    { _id: _id },
+                    {
+                        $set: {
+                            key: encryptonKey,
+                        },
+                    },
+                    { new: true }
+                )
+        } else {
+            const newKey = new Key({
+                key: encryptonKey,
+            });
 
-        for (const mailChunk of mailChunks) {
-            const emailRes = await sendBulkMail(mailChunk);
+            await newKey.save()
+        }
+        // sending email one by one 
+        for (const contact of contactList) {
+            const emailRes = await sendMail(contact.Email, contact.Name, encryptonKey);
             if (!emailRes) {
                 throw new Error('Failed to send bulk mail');
             }
         }
-
         return res.send({
             sendMail: true,
             message: "Bulk mail sent.",

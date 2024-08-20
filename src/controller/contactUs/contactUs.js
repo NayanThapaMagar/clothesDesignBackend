@@ -2,7 +2,6 @@
 import contactUs from "../../modules/contactUs.js";
 import sendMail from "../../utils/sendMail.js";
 import logger from '../../../logger/index.js';
-// module.exports = async (req, res) => {
 
 export default async function contactUsHandler(req, res) {
 

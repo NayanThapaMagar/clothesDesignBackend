@@ -18,3 +18,23 @@
 [error] 2024-07-20 19:14:22 Cannot access 'existingPrizes' before initialization
 [error] 2024-07-20 19:14:28 Cannot access 'existingPrizes' before initialization
 [error] 2024-07-20 19:14:28 Cannot access 'existingPrizes' before initialization
+[error] 2024-07-28 14:24:34 recipient is not defined
+[error] 2024-07-28 14:30:54 decrypt is not defined
+[error] 2024-07-28 14:57:07 Assignment to constant variable.
+[error] 2024-07-28 15:25:14 The first argument must be of type string or an instance of Buffer, ArrayBuffer, or Array or an Array-like Object. Received null
+[error] 2024-07-28 15:29:12 Cast to Buffer failed for value "new ObjectId('66a611fe0907c85e2a3ab115')" (type ObjectId) at path "key"
+[error] 2024-07-28 15:30:37 The first argument must be of type string or an instance of Buffer, ArrayBuffer, or Array or an Array-like Object. Received null
+[error] 2024-07-28 15:33:07 The first argument must be of type string or an instance of Buffer, ArrayBuffer, or Array or an Array-like Object. Received an instance of model
+[error] 2024-07-28 15:34:40 The first argument must be of type string or an instance of Buffer, ArrayBuffer, or Array or an Array-like Object. Received null
+[error] 2024-07-30 12:48:50 Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/
+[error] 2024-07-30 13:53:36 queryTxt ETIMEOUT cluster0.lmn44bj.mongodb.net
+[error] 2024-07-30 13:55:35 querySrv ETIMEOUT _mongodb._tcp.cluster0.lmn44bj.mongodb.net
+[error] 2024-07-30 14:00:57 querySrv ETIMEOUT _mongodb._tcp.cluster0.lmn44bj.mongodb.net
+[error] 2024-07-30 15:03:09 Cannot read properties of null (reading 'prize')
+[error] 2024-07-30 15:03:28 Cannot read properties of null (reading 'prize')
+[error] 2024-07-30 15:03:46 Cannot read properties of null (reading 'prize')
+[error] 2024-07-30 15:03:57 Cannot read properties of null (reading 'prize')
+[error] 2024-07-30 15:03:58 Cannot read properties of null (reading 'prize')
+[error] 2024-07-30 15:04:14 Cannot read properties of null (reading 'prize')
+
+[error] 2024-07-31 10:34:37 read ECONNRESET

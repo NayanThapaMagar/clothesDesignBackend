@@ -1,7 +1,6 @@
 import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
-// creating a schema for adding Staff
 const contactUsSchema = new Schema({
     Name: {
         type: String,
@@ -24,9 +23,7 @@ const contactUsSchema = new Schema({
     { timestamps: true }
 );
 
-// wrapping staffschema in an object
 const contactUs = mongoose.model("contactUs", contactUsSchema);
 export default contactUs;
 
-// exporting staff schema
-// module.exports = addStaff;
+

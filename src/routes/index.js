@@ -13,11 +13,17 @@ import saveCustomerDescription from '../controller/customerDescription/saveCusto
 
 import listContacts from '../controller/contact/listContacts.js';
 
+import getEncryptionKey from '../controller/encryptionKey/getEncryptionKey.js';
+
 import bulkMail from '../controller/mail/bulkMail.js';
 
 import savePrizes from '../controller/spinWheelSettings/savePrizes.js';
 
 import getPrizes from '../controller/spinWheelSettings/getPrizes.js';
+
+import setWinnerPrize from '../controller/winnerPrize/setWinnerPrize.js';
+
+import getWinnerPrize from '../controller/winnerPrize/getWinnerPrize.js';
 
 
 // //-----------------------------------------REQUEST HANDELING--------------------------------------------
@@ -29,10 +35,11 @@ router.get("/", (req, res) => {
 
 router.post("/contactUs", contactUsHandler);
 
-// router.post("/saveMail", saveMail);
 router.post("/saveMail", upload.single('image'), saveMail);
 
 router.get("/listContacts", listContacts);
+
+router.get("/getEncryptionKey", getEncryptionKey);
 
 router.post("/sendBulkMail", bulkMail);
 
@@ -41,6 +48,10 @@ router.post("/saveCustomerDescription", saveCustomerDescription);
 router.post("/spinWheelSettings/savePrizes", savePrizes);
 
 router.get("/spinWheelSettings/getPrizes", getPrizes);
+
+router.post("/setWinnerPrize", setWinnerPrize);
+
+router.get("/getWinnerPrize/:iv", getWinnerPrize);
 
 
 

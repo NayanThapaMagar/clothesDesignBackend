@@ -3,7 +3,7 @@ import customerDescription from '../../modules/customerDescription.js';
 
 export default async function saveCustomerDescription(req, res) {
 
-    // // getting data from body or frontend
+    // getting data from body or frontend
     const { name, email, description } = req.body;
 
     //checking whether the user provide all the details or not
